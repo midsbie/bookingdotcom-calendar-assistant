@@ -1,0 +1,22 @@
+{
+  "name": "tampermonkey-scripts",
+  "version": "1.0.0",
+  "description": "Collection of Tampermonkey scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midsbie/tampermonkey-scripts.git"
+  },
+  "author": "Miguel Guedes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/midsbie/tampermonkey-scripts/issues"
+  },
+  "homepage": "https://github.com/midsbie/tampermonkey-scripts#readme",
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
