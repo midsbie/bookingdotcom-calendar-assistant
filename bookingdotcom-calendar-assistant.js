@@ -73,15 +73,12 @@ function waitUntilEnablement(el) {
  * it does the job.
  */
 function watchForAvailabilityChanges() {
-  let last;
   setInterval(() => {
+    const price = priceInput.value.trim();
+    const priceValid = price.length > 0 && /^-?\d*(\.\d*)?$/.test(price);
     const cur = getSelectedRadioButtonValue("availability");
-    if (last === cur) return;
-
-    last = cur;
     isAvailabilityOpen = cur === RADIO_AVAILABILITY_OPEN;
-    btnCapture.disabled = !isAvailabilityOpen;
-    console.info("availability open:", isAvailabilityOpen);
+    btnCapture.disabled = !isAvailabilityOpen || !priceValid;
   }, 100);
 }
 
