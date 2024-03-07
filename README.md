@@ -1,5 +1,9 @@
 # Calendar Assistant for Booking.com
 
+<p align="center">
+  <img src="doc/screenshot-master.png" alt="Screenshot of Form">
+</p>
+
 The Calendar Assistant for Booking.com is a userscript designed to enhance the calendar interface
 for property managers. This tool introduces "Capture" and "Restore" functionalities, making it
 easier to manage pricing and availability settings across different properties or time periods. It
