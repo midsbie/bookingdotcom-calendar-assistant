@@ -17,9 +17,12 @@ significantly reducing the need for repetitive manual entries.
 ## Installation
 
 1. To use the Calendar Assistant, you must have a userscript manager installed on your
-   browser. Greasemonkey (for Firefox users) and Tampermonkey (for users of Chrome and other
-   browsers) are popular userscript manager addons that allow you to add custom scripts to web
-   pages. Install Greasemonkey or Tampermonkey from your browser's extension store.
+   browser. Greasemonkey (for
+   [Firefox](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/) users) and Tampermonkey
+   (for users of
+   [Chrome](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+   and other browsers) are popular userscript manager addons that allow you to add custom scripts to
+   web pages. Install Greasemonkey or Tampermonkey from your browser's extension store.
 1. Once the userscript manager is installed, create a new userscript within it. This is usually done
    through the extension's dashboard or toolbar icon.
 1. Open the
