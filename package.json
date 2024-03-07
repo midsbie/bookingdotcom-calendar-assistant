@@ -4,11 +4,15 @@
   "description": "Calendar Assistant for Booking.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fmt": "npm run fmt:src && npm run fmt:json && npm run fmt:md",
+    "fmt:src": "prettier './*.js' --check",
+    "fmt:json": "prettier --parser json ./package.json --check",
+    "fmt:md": "prettier --parser markdown './*.md' --check"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/midsbie/bookingdotcom-calendar-assistant.git"
+    "url": "git+https://github.com:midsbie/bookingdotcom-calendar-assistant.git"
   },
   "author": "Miguel Guedes",
   "license": "MIT",
