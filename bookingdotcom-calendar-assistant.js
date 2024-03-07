@@ -11,7 +11,7 @@ const htmlMetaUI = `
   <div class="bui-spacer--medium">
     <hr class="bui-divider bui-divider--light">
   </div>
-  <span>Calendar State Assistant</span>
+  <span>Calendar Assistant</span>
 </div>
 
 <div class="av-monthly__form-btn-wrap av-monthly-flex-inline__wrap">
