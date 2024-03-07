@@ -26,14 +26,6 @@ const htmlMetaUI = `
 
 const RADIO_AVAILABILITY_OPEN = "AVAILABILITY_OPEN";
 
-window.addEventListener("storage", function (event) {
-  console.error("STORAGE EVENT", event.key, event);
-
-  if (event.key === "calendar_state") {
-    console.log('Local storage "calendar_state" changed in another tab', event);
-  }
-});
-
 let formContainer, availabilityOpenedInput, priceInput, lengthStay, advanceReservation;
 let btnCapture;
 let isAvailabilityOpen;
