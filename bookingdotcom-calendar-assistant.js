@@ -1,8 +1,9 @@
 // ==UserScript==
-// @name     Booking.com Calendar State Assistant
-// @version  1
-// @grant    none
-// @include  https://admin.booking.com/hotel/hoteladmin/extranet_ng/manage/calendar/index.html?*
+// @name        Calendar Assistant for Booking.com
+// @description This user script enhances Booking.com's calendar interface for property managers by adding "Capture" and "Restore" functionalities. It allows users to easily save the state of their property's pricing and availability settings for a specific month and then apply these settings across other properties or times. This automation aims to streamline the process of managing seasonal rate variations and booking conditions without the need for repetitive manual entry, enhancing efficiency and accuracy in property management on the platform.
+// @version     1
+// @grant       none
+// @include     https://admin.booking.com/hotel/hoteladmin/extranet_ng/manage/calendar/index.html?*
 // ==/UserScript==
 
 const htmlMetaUI = `

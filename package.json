@@ -1,21 +1,21 @@
 {
-  "name": "tampermonkey-scripts",
+  "name": "bookingdotcom-calendar-assistant",
   "version": "1.0.0",
-  "description": "Collection of Tampermonkey scripts",
+  "description": "Calendar Assistant for Booking.com",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/midsbie/tampermonkey-scripts.git"
+    "url": "git+https://github.com/midsbie/bookingdotcom-calendar-assistant.git"
   },
   "author": "Miguel Guedes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/midsbie/tampermonkey-scripts/issues"
+    "url": "https://github.com/midsbie/bookingdotcom-calendar-assistant/issues"
   },
-  "homepage": "https://github.com/midsbie/tampermonkey-scripts#readme",
+  "homepage": "https://github.com/midsbie/bookingdotcom-calendar-assistant#readme",
   "devDependencies": {
     "prettier": "^3.2.5"
   }
