@@ -29,6 +29,12 @@ const RADIO_AVAILABILITY_OPEN = "AVAILABILITY_OPEN";
 const PRICE_PATTERN = /^\d+(\.\d*)?$/;
 
 let formContainer, availabilityOpenedInput, priceInput, lengthStay, advanceReservation;
+const logger = {
+  PREFIX: "[CalendarAssistant]",
+  log: (...args) => console.log(logger.PREFIX, ...args),
+  error: (...args) => console.error(logger.PREFIX, ...args),
+};
+
 let btnCapture;
 document.addEventListener("DOMContentLoaded", async () => {
   formContainer = [...document.querySelectorAll(".av-monthly-container__block")].slice(-2)[0];
@@ -98,7 +104,7 @@ function setSelectOption(sel, value) {
 
 function restoreSelectOption(el, value, label) {
   if (value && !setSelectOption(el, value)) {
-    console.error(`cannot find ${label} select option with value =`, value);
+    logger.error(`Cannot find ${label} select option with value =`, value);
   }
 }
 
@@ -114,9 +120,9 @@ function restoreState() {
 
     const state = JSON.parse(str);
     loadForm(state);
-    console.log("restored state:", state);
+    logger.log("Restored state:", state);
   } catch (e) {
-    console.error("failed to restore state from local storage:", e);
+    logger.error("Failed to restore state from local storage:", e);
   }
 }
 
@@ -133,9 +139,9 @@ function captureState() {
 
   try {
     localStorage.setItem("calendar_state", JSON.stringify(state));
-    console.log("State updated:", state);
+    logger.log("State updated:", state);
   } catch (e) {
-    console.error("Failed to save state to local storage:", e);
+    logger.error("Failed to save state to local storage:", e);
   }
 }
 
