@@ -58,7 +58,7 @@ async function waitUntil(predicate) {
 }
 
 function waitUntilEnablement(el) {
-  return waitUntil(() => el.disabled);
+  return waitUntil(() => !el.disabled);
 }
 
 /**
