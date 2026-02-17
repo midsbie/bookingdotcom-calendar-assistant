@@ -28,13 +28,13 @@ const RADIO_AVAILABILITY_OPEN = "AVAILABILITY_OPEN";
 
 const PRICE_PATTERN = /^\d+(\.\d*)?$/;
 
-let formContainer, availabilityOpenedInput, priceInput, lengthStay, advanceReservation;
 const logger = {
   PREFIX: "[CalendarAssistant]",
   log: (...args) => console.log(logger.PREFIX, ...args),
   error: (...args) => console.error(logger.PREFIX, ...args),
 };
 
+let formContainer, priceInput, lengthStay, advanceReservation;
 let btnCapture;
 document.addEventListener("DOMContentLoaded", async () => {
   formContainer = [...document.querySelectorAll(".av-monthly-container__block")].slice(-2)[0];
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   formContainer.querySelector(".btn-restore").addEventListener("click", restoreState);
   btnCapture.addEventListener("click", captureState);
 
-  availabilityOpenedInput = document.getElementById("availability-opened");
   watchCaptureEligibility();
 });
 
@@ -146,7 +145,7 @@ function captureState() {
 }
 
 async function loadForm(state) {
-  availabilityOpenedInput.click();
+  document.getElementById("availability-opened").click();
   await waitUntilEnablement(priceInput);
 
   if (state.price) {
