@@ -95,6 +95,12 @@ function setSelectOption(sel, value) {
   return true;
 }
 
+function restoreSelectOption(el, value, label) {
+  if (value && !setSelectOption(el, value)) {
+    console.error(`cannot find ${label} select option with value =`, value);
+  }
+}
+
 function dispatchEvent(el, name) {
   const ev = new Event(name, { bubbles: true, cancelable: true });
   el.dispatchEvent(ev);
@@ -138,18 +144,6 @@ async function loadForm(state) {
     dispatchEvent(priceInput, "input");
   }
 
-  if (state.stay) {
-    if (!setSelectOption(lengthStay, state.stay)) {
-      console.error("cannot find length of stay select option with value =", state.stay);
-    }
-  }
-
-  if (state.advance) {
-    if (!setSelectOption(advanceReservation, state.advance)) {
-      console.error(
-        "cannot find advance reservation days select option with value =",
-        state.advance,
-      );
-    }
-  }
+  restoreSelectOption(lengthStay, state.stay, "length of stay");
+  restoreSelectOption(advanceReservation, state.advance, "advance reservation days");
 }
