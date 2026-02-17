@@ -26,9 +26,10 @@ const htmlMetaUI = `
 
 const RADIO_AVAILABILITY_OPEN = "AVAILABILITY_OPEN";
 
+const PRICE_PATTERN = /^\d+(\.\d*)?$/;
+
 let formContainer, availabilityOpenedInput, priceInput, lengthStay, advanceReservation;
 let btnCapture;
-let isAvailabilityOpen;
 document.addEventListener("DOMContentLoaded", async () => {
   formContainer = [...document.querySelectorAll(".av-monthly-container__block")].slice(-2)[0];
   priceInput = document.querySelector('input[id^="price-"][type="text"]');
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   btnCapture.addEventListener("click", saveState);
 
   availabilityOpenedInput = document.getElementById("availability-opened");
-  watchForAvailabilityChanges();
+  watchCaptureEligibility();
 });
 
 function sleep(ms) {
@@ -61,24 +62,24 @@ function waitUntilEnablement(el) {
   return waitUntil(() => !el.disabled);
 }
 
+function isPriceValid(value) {
+  return PRICE_PATTERN.test(value.trim());
+}
+
+function isAvailabilityOpen() {
+  return getSelectedRadioButtonValue("availability") === RADIO_AVAILABILITY_OPEN;
+}
+
 /**
- * Monitors availability radio button changes at a regular interval.
+ * Polls form state to enable or disable the capture button.
  *
- * This function periodically checks the selected availability status and updates the UI
- * accordingly.  Unfortunately, I could not find a way to rely on a change event notification
- * because the page's JavaScript makes programmatic changes to the active radio button that do not
- * seem to result in an event being fired.  Additionally, these programmatic changes do not seem to
- * mutate an attribute in the DOM that could be detected by a MutationObserver. Therefore, this
- * polling approach is used as a workaround to detect changes in availability status. Not pretty but
- * it does the job.
+ * Polling is necessary because the page's JavaScript makes programmatic changes to the active
+ * availability radio button that do not fire change events and do not mutate a DOM attribute
+ * observable by a MutationObserver.
  */
-function watchForAvailabilityChanges() {
+function watchCaptureEligibility() {
   setInterval(() => {
-    const price = priceInput.value.trim();
-    const priceValid = /^\d+(\.\d*)?$/.test(price);
-    const cur = getSelectedRadioButtonValue("availability");
-    isAvailabilityOpen = cur === RADIO_AVAILABILITY_OPEN;
-    btnCapture.disabled = !isAvailabilityOpen || !priceValid;
+    btnCapture.disabled = !isAvailabilityOpen() || !isPriceValid(priceInput.value);
   }, 100);
 }
 
