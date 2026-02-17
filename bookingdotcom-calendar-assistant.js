@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   formContainer = [...document.querySelectorAll(".av-monthly-container__block")].slice(-2)[0];
   priceInput = document.querySelector('input[id^="price-"][type="text"]');
   lengthStay = document.querySelector('select[id^="min-length-of-stay-"]');
-  advanceReservation = document.querySelector('select[id^="children-"]');
+  advanceReservation = document.querySelector(".av-monthly__default-restriction select");
 
   const container = document.createElement("div");
   container.innerHTML = htmlMetaUI;
