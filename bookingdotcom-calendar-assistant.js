@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   btnCapture = formContainer.querySelector(".btn-capture");
   formContainer.querySelector(".btn-restore").addEventListener("click", restoreState);
-  btnCapture.addEventListener("click", saveState);
+  btnCapture.addEventListener("click", captureState);
 
   availabilityOpenedInput = document.getElementById("availability-opened");
   watchCaptureEligibility();
@@ -128,7 +128,7 @@ function readFormState() {
   };
 }
 
-function saveState() {
+function captureState() {
   const state = readFormState();
 
   try {
