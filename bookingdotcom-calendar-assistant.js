@@ -120,12 +120,16 @@ function restoreState() {
   }
 }
 
-function saveState() {
-  const state = {
+function readFormState() {
+  return {
     price: priceInput.value,
     stay: lengthStay.value,
     advance: advanceReservation.value,
   };
+}
+
+function saveState() {
+  const state = readFormState();
 
   try {
     localStorage.setItem("calendar_state", JSON.stringify(state));
